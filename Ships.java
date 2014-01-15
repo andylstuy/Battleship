@@ -1,7 +1,6 @@
 public class Ships {
 
   private String _ship;
-  private int lives;
 
   public Ships(String name) {
  	  if(name.equals("aircraft carrier")) {
