@@ -1,7 +1,6 @@
-public class Player {
+public interface Player {
   
-  public void setup(){
-    
-  }
+  public void setup();
+  public void play();
 
 }
