@@ -26,9 +26,9 @@ public class Player {
   }
   
    
-   
+   //Start - Things for gridification
    private static final String NUMBERS = " 1234567890";
-    private static final String LETTERS = "ABCDEFGHIJ";
+   private static final String LETTERS = "ABCDEFGHIJ";
 
     public static void print( String[][] a ) {
 	for (int r = 0; r < a.length; r++) {
@@ -50,6 +50,8 @@ public class Player {
 	    }
 	}
     }
+    //End - Things for gridification
+    
   
     public static void play() {
 	//Creates the Battleship grid, though it does not have any spaces yet and 10 is represented by 0
