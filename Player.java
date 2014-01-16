@@ -42,11 +42,11 @@ public class Player {
 	for (int r = 0; r < a.length; r++) {
 	    for (int c = 0; c < a[r].length; c++) {
 		if (r < 1)
-		    a[r][c] = NUMBERS.substring(c,c+1);
+		    a[r][c] = NUMBERS.substring(c,c+1) + " ";
 		if (r > 0 && c < 1)
-		    a[r][c] = LETTERS.substring(r-1,r);
+		    a[r][c] = LETTERS.substring(r-1,r) + " ";
 		if (r > 0 && c > 0)
-		    a[r][c] = "~";
+		    a[r][c] = "~ ";
 	    }
 	}
     }
