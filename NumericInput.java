@@ -1,9 +1,10 @@
 //**********************************************************************
 // Class NumericInput demonstrates reading numeric values using Scanner.
+// From <http://www.cs.utexas.edu/users/ndale/Scanner.html>
 //**********************************************************************
 
 import java.util.Scanner;
-import java.io.*;          // Access System.out
+import java.io.*;
 
 public class NumericInput {
 
