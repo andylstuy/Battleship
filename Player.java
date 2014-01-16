@@ -50,10 +50,8 @@ public class Player {
 	    }
 	}
     }
-    //End - Things for gridification
     
-  
-    public static void play() {
+    public static void gridify() {
 	//Creates the Battleship grid, though it does not have any spaces yet and 10 is represented by 0
   	String[][] yourTargetGrid = new String[11][11];
 	grid(yourTargetGrid);
@@ -76,6 +74,12 @@ public class Player {
 	System.out.println("Computar's Ocean Grid:");
 	print(computarOceanGrid);
         
+    }
+    //End - Things for gridification
+    
+  
+    public static void play() {
+	gridify();
     }
 
 
