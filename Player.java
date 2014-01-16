@@ -7,27 +7,27 @@ public class Player {
     
 	  System.out.println("Welcome to Battleship!");
     
-	  while(numPlayers != 1 || numPlayers != 2) {
-      System.out.println("Would you like to play a one player or two player game?");
-	    System.out.print("Input 1 to play a one player game or 2 to play a two player game: ");
-	    numPlayers = Keyboard.readInt();
+	while(numPlayers != 1 || numPlayers != 2) {
+      		System.out.println("Would you like to play a one player or two player game?");
+	    	System.out.print("Input 1 to play a one player game or 2 to play a two player game: ");
+	    	numPlayers = Keyboard.readInt();
       
-	    if(numPlayers == 1) {
-		    return setupComp();
-	    }
-	    else if(numPlayers == 2) {
-		    return setupHum();
-	    }
-	    else {
-	    	System.out.println("You did not enter valid input.");
-		    System.out.println("Please try again.");
-	    }
-	  }
+	    	if(numPlayers == 1) {
+			 return setupComp();
+	    	}
+	    	else if(numPlayers == 2) {
+			 return setupHum();
+	    	}
+	    	else {
+	    		System.out.println("You did not enter valid input.");
+			System.out.println("Please try again.");
+	    	}
+	}
   }
   
    
    //Start - Things for gridification
-   private static final String NUMBERS = " 1234567890";
+   private static final String NUMBERS = " 0123456789";
    private static final String LETTERS = "ABCDEFGHIJ";
 
     public static void print( String[][] a ) {
@@ -79,6 +79,7 @@ public class Player {
     
   
     public static void play() {
+    	setup();
 	gridify();
     }
 
