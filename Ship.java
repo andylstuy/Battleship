@@ -41,8 +41,19 @@ public class Ship {
 		  return true;
 	    }
 	}
-	else {
-
+	if (orient.equals("vertical")) {
+		if(letter + _size > 9) {
+		  System.out.println("Invalid position. Ship does not fit on board.");
+		  return false;
+		   }
+	   else {
+		    for(int x = 0; x < _size; x++) {
+		      String coor = letter + num;
+		      coors.add(coor);
+		      letter++;
+		  }
+		  return true;
+	    }
 	}
     }
   
