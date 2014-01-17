@@ -13,10 +13,12 @@ public class Player {
 	    	numPlayers = Keyboard.readInt();
       
 	    	if(numPlayers == 1) {
-			 return setupComp();
+	 		setupHum();
+	 		setupComp();
 	    	}
 	    	else if(numPlayers == 2) {
-			 return setupHum();
+			 setupHum();
+			 setupHum();
 	    	}
 	    	else {
 	    		System.out.println("You did not enter valid input.");
