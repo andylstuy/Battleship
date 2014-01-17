@@ -13,10 +13,13 @@ public class Player {
 	    	numPlayers = Keyboard.readInt();
       
 	    	if(numPlayers == 1) {
-	 		setupHum();
-	 		setupComp();
+	    		Human player1 = new Human();
+	    		setupHum();
+	    		setupComp():
 	    	}
 	    	else if(numPlayers == 2) {
+			 Human player1 = new Human();
+			 Human player2 = new Human();
 			 setupHum();
 			 setupHum();
 	    	}
