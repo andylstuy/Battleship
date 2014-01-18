@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Player {
   
-    public static void setup(){
+    public void setup(){
 
 	Scanner in = new Scanner(System.in);
 
