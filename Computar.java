@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Computar extends Player() {
+public class Computar extends Player {
 
   static String orient;
   static String letter;
