@@ -15,7 +15,7 @@ public class Player {
 	    	if(numPlayers == 1) {
 	    		Human player1 = new Human();
 	    		setupHum();
-	    		setupComp():
+	    		setupComp();
 	    	}
 	    	else if(numPlayers == 2) {
 			 Human player1 = new Human();
