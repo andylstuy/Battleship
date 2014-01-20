@@ -32,11 +32,9 @@ public class Ship {
     }
 
     public int numifyLetter(String letter) {
-        for(int x = 0; x < LETTERS.length(); x++) {
-            if(LETTERS.substring(x, x+1).equals(letter)) {
+        for(int x = 0; x < LETTERS.length(); x++)
+            if(LETTERS.substring(x, x+1).equals(letter))
                 return x;
-            }
-        }
         return -1;
     }
   
