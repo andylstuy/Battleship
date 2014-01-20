@@ -8,58 +8,70 @@ public class Human extends Player {
     static String orient;
     static String letter;
     static int num;
-  
-    static Ship airCraft = new Ship("aircraft carrier");
-    static Ship battle = new Ship("battleship");
-    static Ship cruiser = new Ship("cruiser");
-    static Ship submarine = new Ship("submarine");
-    static Ship destroyer = new Ship("destroyer");
 
-    public static void main(String[] args) {
-	System.out.println("Please place your aircraft carrier. This ship is five units long. \nChoose the orientation (horizontal or vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9. \nSeparate each entry by a space.");
-	System.out.print("Orientation, letter of coordinate, number of coordinate: ");
-    
-	orient = in.next();
-	letter = in.next();
-	num = in.nextInt();
-    
-	airCraft.setShip(orient, letter, num);
+    public static void setup(){
+	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
 
-	System.out.println("Please place your battleship. This ship is four units long. \nChoose the orientation (horizontal or vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9. \nSeparate each entry by a space.");
-	System.out.print("Orientation, letter of coordinate, number of coordinate: ");
-    
-	orient = in.next();
-	letter = in.next();
-	num = in.nextInt();
-    
-	battle.setShip(orient, letter, num);
+	boolean set = false;
 
-	System.out.println("Please place your cruiser. This ship is three units long. \nChoose the orientation (horizontal or vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9. \nSeparate each entry by a space.");
-	System.out.print("Orientation, letter of coordinate, number of coordinate: ");
+	while (set == false){
+	    System.out.println("\nPlease place your aircraft carrier. This ship is five units long.");
+	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
-	orient = in.next();
-	letter = in.next();
-	num = in.nextInt();
+	    orient = in.next();
+	    letter = in.next();
+	    num = in.nextInt();
     
-	cruiser.setShip(orient, letter, num);
+	    set = airCraft.setShip(orient, letter, num);
+	}
+	set = false;
 
-	System.out.println("Please place your submarine. This ship is three units long. \nChoose the orientation (horizontal or vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9. \nSeparate each entry by a space.");
-	System.out.print("Orientation, letter of coordinate, number of coordinate: ");
+	while (set == false) {
+	    System.out.println("\nPlease place your battleship. This ship is four units long.");
+	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
-	orient = in.next();
-	letter = in.next();
-	num = in.nextInt();
+	    orient = in.next();
+	    letter = in.next();
+	    num = in.nextInt();
     
-	submarine.setShip(orient, letter, num);
+	    set = battle.setShip(orient, letter, num);
+	}
+	set = false;
 
-	System.out.println("Please place your destroyer. This ship is two units long. \nChoose the orientation (horizontal or vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9. \nSeparate each entry by a space.");
-	System.out.print("Orientation, letter of coordinate, number of coordinate: ");
+	while (set == false) {
+	    System.out.println("\nPlease place your cruiser. This ship is three units long.");
+	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
-	orient = in.next();
-	letter = in.next();
-	num = in.nextInt();
+	    orient = in.next();
+	    letter = in.next();
+	    num = in.nextInt();
     
-	destroyer.setShip(orient, letter, num);
+	    set = cruiser.setShip(orient, letter, num);
+	}
+	set = false;
+
+	while (set == false) {
+	    System.out.println("\nPlease place your submarine. This ship is three units long.");
+	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
+    
+	    orient = in.next();
+	    letter = in.next();
+	    num = in.nextInt();
+    
+	    set = submarine.setShip(orient, letter, num);
+	}
+	set = false;
+
+	while (set == false) {
+	    System.out.println("\nPlease place your destroyer. This ship is two units long.");
+	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
+    
+	    orient = in.next();
+	    letter = in.next();
+	    num = in.nextInt();
+    
+	    set = destroyer.setShip(orient, letter, num);
+	}
     }
 
 }
