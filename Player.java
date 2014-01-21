@@ -26,7 +26,7 @@ public class Player {
 	    Human human1 = new Human();
 	    Computar computar1 = new Computar();
 	    human1.setup();
-	    computar1.setup();
+	    //	    computar1.setup();
 	}
 	else if(numPlayers == 2) {
 	    Human human1 = new Human();
@@ -84,9 +84,9 @@ public class Player {
 	}
     }
     
-    public static void gridify() {
+    public static void gridifyYou() {
       
-	String[][] yourTargetGrid = new String[11][11];
+        String[][] yourTargetGrid = new String[11][11];
         grid(yourTargetGrid);
         System.out.println("Player1 Target Grid:");
         print(yourTargetGrid);
@@ -97,8 +97,9 @@ public class Player {
         System.out.println("Player1 Ocean Grid:");
         print(yourOceanGrid);
 
-        System.out.println();
-        System.out.println();
+    }
+
+    public static void gridifyCPU() {
 
         String[][] computarTargetGrid = new String[11][11];
         grid(computarTargetGrid);
@@ -117,6 +118,6 @@ public class Player {
   
     public static void play() {
 	setup();
-        gridify();
+        //gridify();
     }
 }

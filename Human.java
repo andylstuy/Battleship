@@ -12,8 +12,8 @@ public class Human extends Player {
     public static void setup(){
 	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
 
+	//Aircraft Placement
 	boolean set = false;
-
 	while (set == false){
 	    System.out.println("\nPlease place your aircraft carrier. This ship is five units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
@@ -23,9 +23,12 @@ public class Human extends Player {
 	    num = in.nextInt();
     
 	    set = airCraft.setShip(orient, letter, num);
+	    
 	}
-	set = false;
+	gridifyYou();
 
+	//Battleship Placement
+	set = false;
 	while (set == false) {
 	    System.out.println("\nPlease place your battleship. This ship is four units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
@@ -35,9 +38,16 @@ public class Human extends Player {
 	    num = in.nextInt();
     
 	    set = battle.setShip(orient, letter, num);
+	    /* if (airCraft.isOccupied(battle) == true) {
+		gridifyYou();
+		System.out.println("Ship already here! \nTry again.");
+		}*/
+	    
 	}
-	set = false;
+	gridifyYou();
 
+	//Cruiser Placement
+	set = false;
 	while (set == false) {
 	    System.out.println("\nPlease place your cruiser. This ship is three units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
@@ -48,8 +58,10 @@ public class Human extends Player {
     
 	    set = cruiser.setShip(orient, letter, num);
 	}
-	set = false;
+	gridifyYou();
 
+	//Submarine Placement
+	set = false;
 	while (set == false) {
 	    System.out.println("\nPlease place your submarine. This ship is three units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
@@ -60,8 +72,10 @@ public class Human extends Player {
     
 	    set = submarine.setShip(orient, letter, num);
 	}
-	set = false;
+	gridifyYou();
 
+	//Destroyer Placement
+	set = false;
 	while (set == false) {
 	    System.out.println("\nPlease place your destroyer. This ship is two units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
@@ -72,6 +86,8 @@ public class Human extends Player {
     
 	    set = destroyer.setShip(orient, letter, num);
 	}
+	gridifyYou();
+
     }
 
 }
