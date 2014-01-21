@@ -85,9 +85,5 @@ public class Ship {
         }
     }
 
-    //    public boolean setShipCPU(String orient 
-
-
-
 
 }
