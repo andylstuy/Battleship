@@ -2,19 +2,14 @@ import java.util.Scanner;
 import java.io.*;
 
 public class Human extends Player {
-  
+    
     // Declarations
     static Scanner in = new Scanner(System.in);
     static String orient;
     static String letter;
     static int num;
 
-    public static void resetCoors(Ship ship){
-	for (int i = 0; i < ship.getCoors().size(); i++)
-	    ship.getCoors().set(i, 0);
-    }
-
-    public static void setup(){
+    public static void setupForOneHuman(){
 	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
 
 	
