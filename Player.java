@@ -10,7 +10,7 @@ public class Player {
   
     public static void resetCoors(Ship ship){
 	for (int i = 0; i < ship.getCoors().size(); i++)
-	    ship.getCoors().set(i, 0);
+	    ship.getCoors().set(i, null);
     }
 
     public static void setup(){
