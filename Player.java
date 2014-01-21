@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Player {
 
-    static Ship airCraft = new Ship("aircraft carrier");
+    static Ship aircraft = new Ship("aircraft carrier");
     static Ship battle = new Ship("battleship");
     static Ship cruiser = new Ship("cruiser");
     static Ship submarine = new Ship("submarine");
@@ -67,8 +67,8 @@ public class Player {
     }
 
     public static void shipifyGrid(String[][] a) {
-	for(int x = 0; x < airCraft.getCoors().size(); x++) {
-	    a[(airCraft.getCoors().get(x)/10)][(airCraft.getCoors().get(x)%10)+1] = "+";
+	for(int x = 0; x < aircraft.getCoors().size(); x++) {
+	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "+";
 	}
 	for(int x = 0; x < battle.getCoors().size(); x++) {
 	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "+";
