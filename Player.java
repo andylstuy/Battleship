@@ -8,6 +8,11 @@ public class Player {
     static Ship submarine = new Ship("submarine");
     static Ship destroyer = new Ship("destroyer");
   
+    public static void resetCoors(Ship ship){
+	for (int i = 0; i < ship.getCoors().size(); i++)
+	    ship.getCoors().set(i, 0);
+    }
+
     public static void setup(){
 
         Scanner in = new Scanner(System.in);
@@ -25,8 +30,8 @@ public class Player {
 	if(numPlayers == 1) {
 	    Human human1 = new Human();
 	    Computar computar1 = new Computar();
-	    human1.setup();
-	    //	    computar1.setup();
+	    human1.setupForOneHuman();
+	    computar1.setupForCPU();
 	}
 	else if(numPlayers == 2) {
 	    Human human1 = new Human();
@@ -68,19 +73,19 @@ public class Player {
 
     public static void shipifyGrid(String[][] a) {
 	for(int x = 0; x < aircraft.getCoors().size(); x++) {
-	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "+";
+	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "a";
 	}
 	for(int x = 0; x < battle.getCoors().size(); x++) {
-	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "+";
+	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "b";
 	}
 	for(int x = 0; x < cruiser.getCoors().size(); x++) {
-	    a[(cruiser.getCoors().get(x)/10)][(cruiser.getCoors().get(x)%10)+1] = "+";
+	    a[(cruiser.getCoors().get(x)/10)][(cruiser.getCoors().get(x)%10)+1] = "c";
 	}
 	for(int x = 0; x < submarine.getCoors().size(); x++) {
-	    a[(submarine.getCoors().get(x)/10)][(submarine.getCoors().get(x)%10)+1] = "+";
+	    a[(submarine.getCoors().get(x)/10)][(submarine.getCoors().get(x)%10)+1] = "s";
 	}
 	for(int x = 0; x < destroyer.getCoors().size(); x++) {
-	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "+";
+	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "d";
 	}
     }
     
@@ -109,7 +114,7 @@ public class Player {
         String[][] computarOceanGrid = new String[11][11];
         grid(computarOceanGrid);
 	shipifyGrid(computarOceanGrid);
-        System.out.println("Player2 Ocean Grid:");
+	System.out.println("Player2 Ocean Grid:");
         print(computarOceanGrid);
         
     }
