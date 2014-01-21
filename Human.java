@@ -9,9 +9,15 @@ public class Human extends Player {
     static String letter;
     static int num;
 
+    public static void resetCoors(Ship ship){
+	for (int i = 0; i < ship.getCoors().size(); i++)
+	    ship.getCoors().set(i, 0);
+    }
+
     public static void setup(){
 	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
 
+	
 	//Aircraft Placement
 	boolean set = false;
 	while (set == false){
@@ -22,33 +28,38 @@ public class Human extends Player {
 	    letter = in.next();
 	    num = in.nextInt();
     
-	    set = airCraft.setShip(orient, letter, num);
+	    set = aircraft.setShip(orient, letter, num);
 	    
 	}
 	gridifyYou();
 
+	
 	//Battleship Placement
 	set = false;
 	while (set == false) {
+	    
 	    System.out.println("\nPlease place your battleship. This ship is four units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
 	    orient = in.next();
 	    letter = in.next();
 	    num = in.nextInt();
-    
+	    
 	    set = battle.setShip(orient, letter, num);
-	    /* if (airCraft.isOccupied(battle) == true) {
-		gridifyYou();
+	    if (battle.isOccupied(aircraft) == false) {
 		System.out.println("Ship already here! \nTry again.");
-		}*/
+		set = false;
+		resetCoors(battle);
+	    }
 	    
 	}
 	gridifyYou();
 
+	
 	//Cruiser Placement
 	set = false;
 	while (set == false) {
+
 	    System.out.println("\nPlease place your cruiser. This ship is three units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
@@ -57,12 +68,25 @@ public class Human extends Player {
 	    num = in.nextInt();
     
 	    set = cruiser.setShip(orient, letter, num);
+	    if (cruiser.isOccupied(aircraft) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(cruiser);
+	    }
+	    if (cruiser.isOccupied(battle) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(cruiser);
+	    }
+
 	}
 	gridifyYou();
 
+	
 	//Submarine Placement
 	set = false;
 	while (set == false) {
+
 	    System.out.println("\nPlease place your submarine. This ship is three units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
@@ -71,12 +95,30 @@ public class Human extends Player {
 	    num = in.nextInt();
     
 	    set = submarine.setShip(orient, letter, num);
+	    if (submarine.isOccupied(aircraft) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(submarine);
+	    }
+	    if (submarine.isOccupied(battle) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(submarine);
+	    }
+	    if (submarine.isOccupied(cruiser) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(submarine);
+	    }
+
 	}
 	gridifyYou();
 
+	
 	//Destroyer Placement
 	set = false;
 	while (set == false) {
+
 	    System.out.println("\nPlease place your destroyer. This ship is two units long.");
 	    System.out.print("Orientation, letter of coordinate, number of coordinate: ");
     
@@ -85,8 +127,30 @@ public class Human extends Player {
 	    num = in.nextInt();
     
 	    set = destroyer.setShip(orient, letter, num);
+	    if (destroyer.isOccupied(aircraft) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(destroyer);
+	    }
+	    if (destroyer.isOccupied(battle) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(destroyer);
+	    }
+	    if (destroyer.isOccupied(cruiser) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(destroyer);
+	    }
+	    if (destroyer.isOccupied(submarine) == false) {
+		System.out.println("Ship already here! \nTry again.");
+		set = false;
+		resetCoors(destroyer);
+	    }
+ 
 	}
 	gridifyYou();
+
 
     }
 
