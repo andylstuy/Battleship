@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Ship {
 
-    private static final String LETTERS = "ABCDEFGHIJ";
+    private static final String LETTERS = "ABCDEFGHIJ ";
     private int _lives;
     private int _size;
     private static String _name;
@@ -42,10 +42,19 @@ public class Ship {
 	return coors;
     }
 
+    public boolean isOccupied(Ship ship) {
+	boolean retBoo = true;
+	for (int i = 0; i < this.getCoors().size(); i++)
+	    for (int j = 0; j < ship.getCoors().size(); j++)
+		if ( ship.getCoors().get(j) == this.getCoors().get(i) )
+		    retBoo = false;
+	return retBoo;
+    }
+
     public boolean setShip(String orient, String letter, int num) {
         
         if(orient.equals("h")) {
-            if(num + _size > 9) {
+            if(num + _size > 10) {
                 System.out.println("\nInvalid position. Ship does not fit on board.");
                 return false;
             }
@@ -59,7 +68,7 @@ public class Ship {
             }
         }
         else {
-            if(numifyLetter(letter) + _size > 9) {
+            if(numifyLetter(letter) + _size > 10) {
                 System.out.println("\nInvalid position. Ship does not fit on board.");
                 return false;
             }
@@ -73,4 +82,10 @@ public class Ship {
             }
         }
     }
+
+    //    public boolean setShipCPU(String orient 
+
+
+
+
 }
