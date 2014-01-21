@@ -43,7 +43,7 @@ public class Computar extends Player {
 		numCPU = (int) (10 * Math.random());
 	    }
     
-	    set = aircraftCPU.setShip(orientCPU, letterCPU, numCPU);
+	    set = aircraft.setShip(orientCPU, letterCPU, numCPU);
 	}
 
 	
@@ -67,11 +67,11 @@ public class Computar extends Player {
 		numCPU = (int) (10 * Math.random());
 	    }
 	    
-	    set = battleCPU.setShip(orientCPU, letterCPU, numCPU);
+	    set = battle.setShip(orientCPU, letterCPU, numCPU);
 
-	    if (battleCPU.isOccupied(aircraftCPU) == false) {
+	    if (battle.isOccupied(aircraft) == false) {
 		set = false;
-		resetCoors(battleCPU);
+		resetCoors(battle);
 		resetOther();
 		
 	    }
@@ -98,15 +98,15 @@ public class Computar extends Player {
 		numCPU = (int) (10 * Math.random());
 	    }
     
-	    set = cruiserCPU.setShip(orientCPU, letterCPU, numCPU);
-	    if (cruiserCPU.isOccupied(aircraftCPU) == false) {
+	    set = cruiser.setShip(orientCPU, letterCPU, numCPU);
+	    if (cruiser.isOccupied(aircraft) == false) {
 		set = false;
-		resetCoors(cruiserCPU);
+		resetCoors(cruiser);
 		resetOther();
 	    }
-	    if (cruiserCPU.isOccupied(battleCPU) == false) {
+	    if (cruiser.isOccupied(battle) == false) {
 		set = false;
-		resetCoors(cruiserCPU);
+		resetCoors(cruiser);
 		resetOther();
 	    }
 
@@ -132,20 +132,20 @@ public class Computar extends Player {
 		numCPU = (int) (10 * Math.random());
 	    }
     
-	    set = submarineCPU.setShip(orientCPU, letterCPU, numCPU);
-	    if (submarineCPU.isOccupied(aircraftCPU) == false) {
+	    set = submarine.setShip(orientCPU, letterCPU, numCPU);
+	    if (submarine.isOccupied(aircraft) == false) {
 		set = false;
-		resetCoors(submarineCPU);
+		resetCoors(submarine);
 		resetOther();
 	    }
-	    if (submarineCPU.isOccupied(battleCPU) == false) {
+	    if (submarine.isOccupied(battle) == false) {
 		set = false;
-		resetCoors(submarineCPU);
+		resetCoors(submarine);
 		resetOther();
 	    }
-	    if (submarineCPU.isOccupied(cruiserCPU) == false) {
+	    if (submarine.isOccupied(cruiser) == false) {
 		set = false;
-		resetCoors(submarineCPU);
+		resetCoors(submarine);
 		resetOther();
 	    }
 
@@ -171,25 +171,25 @@ public class Computar extends Player {
 		numCPU = (int) (10 * Math.random());
 	    }
     
-	    set = destroyerCPU.setShip(orientCPU, letterCPU, numCPU);
-	    if (destroyerCPU.isOccupied(aircraftCPU) == false) {
+	    set = destroyer.setShip(orientCPU, letterCPU, numCPU);
+	    if (destroyer.isOccupied(aircraft) == false) {
 		set = false;
-		resetCoors(destroyerCPU);
+		resetCoors(destroyer);
 		resetOther();
 	    }
-	    if (destroyerCPU.isOccupied(battleCPU) == false) {
+	    if (destroyer.isOccupied(battle) == false) {
 		set = false;
-		resetCoors(destroyerCPU);
+		resetCoors(destroyer);
 		resetOther();
 	    }
-	    if (destroyerCPU.isOccupied(cruiserCPU) == false) {
+	    if (destroyer.isOccupied(cruiser) == false) {
 		set = false;
-		resetCoors(destroyerCPU);
+		resetCoors(destroyer);
 		resetOther();
 	    }
-	    if (destroyerCPU.isOccupied(submarineCPU) == false) {
+	    if (destroyer.isOccupied(submarine) == false) {
 		set = false;
-		resetCoors(destroyerCPU);
+		resetCoors(destroyer);
 		resetOther();
 	    }
 	    
