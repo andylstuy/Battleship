@@ -7,6 +7,8 @@ public class Player {
     static Ship cruiser = new Ship("cruiser");
     static Ship submarine = new Ship("submarine");
     static Ship destroyer = new Ship("destroyer");
+    
+    static int numPlayers = 0;
   
     public static void resetCoors(Ship ship){
 	for (int i = 0; i < ship.getCoors().size(); i++)
@@ -16,8 +18,6 @@ public class Player {
     public static void setup(){
 
         Scanner in = new Scanner(System.in);
-
-        int numPlayers = 0;
     
         System.out.println("Welcome to Battleship!");
     
@@ -123,6 +123,5 @@ public class Player {
   
     public static void play() {
 	setup();
-        //gridify();
     }
 }
