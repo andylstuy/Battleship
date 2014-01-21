@@ -10,7 +10,7 @@ public class Computar extends Player {
     public static void setup(){
 
     
-	aircraft.setShip(orient, letter, num);
+	airCraft.setShip(orient, letter, num);
 
 
 	battle.setShip(orient, letter, num);
