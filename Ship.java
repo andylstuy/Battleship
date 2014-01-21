@@ -46,8 +46,10 @@ public class Ship {
 	boolean retBoo = true;
 	for (int i = 0; i < this.getCoors().size(); i++)
 	    for (int j = 0; j < ship.getCoors().size(); j++)
-		if ( ship.getCoors().get(j) == this.getCoors().get(i) )
+		if ( ship.getCoors().get(j) == this.getCoors().get(i) ) {
 		    retBoo = false;
+		    break;
+		}
 	return retBoo;
     }
 
