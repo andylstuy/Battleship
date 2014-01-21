@@ -5,13 +5,6 @@ import java.io.*;
 
 public class Computar extends Player {
 
-    static Ship aircraftCPU = new Ship("aircraft carrierCPU");
-    static Ship battleCPU = new Ship("battleshipCPU");
-    static Ship cruiserCPU = new Ship("cruiserCPU");
-    static Ship submarineCPU = new Ship("submarineCPU");
-    static Ship destroyerCPU = new Ship("destroyerCPU");
-
-
     private static final String ETTERS = "ABCDEFGHIJ";
 
     static String orientCPU;
