@@ -151,7 +151,7 @@ public class Player {
     public static void play() {
 	setup();
 	if (numPlayers == 2){
-		while((human1.getAircraft().getLives() > 0 &&
+		while((human1.getAircraft().getLives() > 0 ||
 		human1.getBattle().getLives() > 0 ||
 		human1.getCruiser().getLives() > 0 ||
 		human1.getSubmarine().getLives() > 0 ||
@@ -166,7 +166,7 @@ public class Player {
 		}
 	}
 	else{
-		while((human1.getAircraft().getLives() > 0 &&
+		while((human1.getAircraft().getLives() > 0 ||
 		human1.getBattle().getLives() > 0 ||
 		human1.getCruiser().getLives() > 0 ||
 		human1.getSubmarine().getLives() > 0 ||
