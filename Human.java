@@ -27,7 +27,6 @@ public class Human extends Player {
 	    
 	}
 	gridifyYou();
-
 	
 	//Battleship Placement
 	set = false;
@@ -49,7 +48,6 @@ public class Human extends Player {
 	    
 	}
 	gridifyYou();
-
 	
 	//Cruiser Placement
 	set = false;
@@ -76,7 +74,6 @@ public class Human extends Player {
 
 	}
 	gridifyYou();
-
 	
 	//Submarine Placement
 	set = false;
@@ -108,7 +105,6 @@ public class Human extends Player {
 
 	}
 	gridifyYou();
-
 	
 	//Destroyer Placement
 	set = false;
@@ -145,7 +141,6 @@ public class Human extends Player {
  
 	}
 	gridifyYou();
-
 
     }
 
