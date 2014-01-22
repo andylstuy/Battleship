@@ -180,7 +180,8 @@ public class Computar extends Player {
 	    }
 
 	}
-	gridifyCPU();
+	//gridifyCPU();
+	System.out.println("\nComputar has set its ships..."); 
 
     }
 
