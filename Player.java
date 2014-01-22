@@ -10,6 +10,26 @@ public class Player {
     static Ship destroyer = new Ship("destroyer");
     
     static int numPlayers = 0;
+    
+    public Ship getAircraft(){
+    	return aircraft;
+    }
+    
+    public Ship getBattle(){
+    	return battle;
+    }
+    
+    public Ship getCruiser(){
+    	return cruiser;
+    }
+    
+    public Ship getSubmarine(){
+    	return submarine;
+    }
+    
+    public Ship getDestroyer(){
+    	return destroyer;
+    }
   
     public static void resetCoors(Ship ship){
 	for (int i = 0; i < ship.getCoors().size(); i++)
@@ -131,7 +151,34 @@ public class Player {
     public static void play() {
 	setup();
 	if (numPlayers == 2){
-		while()
+		while((human1.getAircraft().getLives() > 0 &&
+		human1.getBattle().getLives() > 0 ||
+		human1.getCruiser().getLives() > 0 ||
+		human1.getSubmarine().getLives() > 0 ||
+		human1.getDestroyer().getLives() > 0) ||
+		(human2.getAircraft().getLives() > 0 ||
+		human2.getBattle().getLives() > 0 ||
+		human2.getCruiser().getLives() > 0 ||
+		human2.getSubmarine().getLives() > 0 ||
+		human2.getDestroyer().getLives() > 0)) {
+			human1.play();
+			human2.play();
+		}
+	}
+	else{
+		while((human1.getAircraft().getLives() > 0 &&
+		human1.getBattle().getLives() > 0 ||
+		human1.getCruiser().getLives() > 0 ||
+		human1.getSubmarine().getLives() > 0 ||
+		human1.getDestroyer().getLives() > 0) ||
+		(computar1.getAircraft().getLives() > 0 ||
+		computar1.getBattle().getLives() > 0 ||
+		computar1.getCruiser().getLives() > 0 ||
+		computar1.getSubmarine().getLives() > 0 ||
+		computar1.getDestroyer().getLives() > 0)) {
+			human1.play();
+			computar1.play();
+		}
 	}
     }
 }
