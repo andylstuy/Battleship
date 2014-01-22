@@ -30,6 +30,10 @@ public class Ship {
             _size = 3;
         }
     }
+    
+    public int getLives(){
+    	return _lives;
+    }
 
     public int numifyLetter(String letter) {
         for(int x = 0; x < LETTERS.length(); x++)
