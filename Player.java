@@ -130,5 +130,8 @@ public class Player {
   
     public static void play() {
 	setup();
+	if (numPlayers == 2){
+		while()
+	}
     }
 }
