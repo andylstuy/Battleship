@@ -85,6 +85,36 @@ public class Ship {
         }
     }
 
-
+    public boolean setShipCPU(String orient, String letter, int num) {
+        
+        if(orient.equals("h")) {
+            if(num + _size > 10) {
+                System.out.println("\nInvalid position. Ship does not fit on board.");
+                return false;
+            }
+            else {
+                for(int x = 0; x < _size; x++) {
+		    int coor = (numifyLetter(letter)+1) * 10 + num;
+		    coors.set(x,coor);
+		    num++;
+                }
+                return true;
+            }
+        }
+        else {
+            if(numifyLetter(letter) + _size > 10) {
+                System.out.println("\nInvalid position. Ship does not fit on board.");
+                return false;
+            }
+            else {
+                for(int x = 0; x < _size; x++) {
+                    int coor = (numifyLetter(letter)+1) * 10 + num;
+                    coors.set(x,coor);
+                    letter = LETTERS.substring(numifyLetter(letter) + 1, numifyLetter(letter) + 2);
+                }
+                return true;
+            }
+        }
+    }
 
 }
