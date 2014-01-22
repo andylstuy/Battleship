@@ -1,104 +1,94 @@
-// Something wrong with the randomizing omg
-
-import java.util.Scanner;
-import java.io.*;
-
 public class Computar extends Player {
 
-    private static final String ETTERS = "ABCDEFGHIJ";
+    private static final String ETTERS = " ABCDEFGHIJ";
 
-    static String orientCPU;
-    static String letterCPU;
-    static int numCPU;
+    static String orient;
+    static String letter;
+    static int num;
     
     public static String letterifyNumber(int number) {
 	return ETTERS.substring(number, number+1);
     }
 
     public static void resetOther() {
-	orientCPU = "";
-	letterCPU = "";
-	numCPU = 0;
+	orient = "";
+	letter = "";
+	num = 0;
     }
 
     public static void setupForCPU() {
 
-	int randomOrientCPU = 0;
+	int randomOrient = 0;
 
-	//AircraftCPU Placement
 	boolean set = false;
-	while (set == false){
-	    randomOrientCPU = (int) (2 * Math.random());
-	    if (randomOrientCPU == 0)
-		orientCPU = "h";
-	    else
-		orientCPU = "v";
 
-	    if (orientCPU.equals("h")) {
-		letterCPU = letterifyNumber( (int) (10 * Math.random()) );
-		numCPU = (int) (5 * Math.random());
+	//Aircraft Placement
+	while (set == false) {
+	    randomOrient = (int) (2 * Math.random());
+	    if (randomOrient == 0)
+		orient = "h";
+	    else if (randomOrient == 1)
+		orient = "v";
+
+	    if (orient.equals("h")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (6 * Math.random());
 	    }
-	    if (orientCPU.equals("v")) {
-		letterCPU = letterifyNumber( (int) (5 * Math.random()) );
-		numCPU = (int) (10 * Math.random());
+	    if (orient.equals("v")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(6*Math.random())) ) / 10 );
+		num = (int) (10 * Math.random());
 	    }
-    
-	    set = aircraft.setShip(orientCPU, letterCPU, numCPU);
+
+	    set = aircraft.setShipCPU(orient, letter, num);
+
 	}
 
-	
 	//Battleship Placement
 	set = false;
 	while (set == false) {
+	    randomOrient = (int) (2 * Math.random());
+	    if (randomOrient == 0)
+		orient = "h";
+	    else if (randomOrient == 1)
+		orient = "v";
 
-	    randomOrientCPU = (int) (2 * Math.random());
-
-	    if (randomOrientCPU == 0)
-		orientCPU = "h";
-	    else if (randomOrientCPU == 1)
-		orientCPU = "v";
-
-	    if (orientCPU.equals("h")) {
-		letterCPU = letterifyNumber( (int) (10 * Math.random()) );
-		numCPU = (int) (6 * Math.random());
+	    if (orient.equals("h")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (7 * Math.random());
 	    }
-	    if (orientCPU.equals("v")) {
-		letterCPU = letterifyNumber( (int) (6 * Math.random()) );
-		numCPU = (int) (10 * Math.random());
+	    if (orient.equals("v")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(7*Math.random())) ) / 10 );
+		num = (int) (10 * Math.random());
 	    }
-	    
-	    set = battle.setShip(orientCPU, letterCPU, numCPU);
 
+	    set = battle.setShipCPU(orient, letter, num);
 	    if (battle.isOccupied(aircraft) == false) {
 		set = false;
 		resetCoors(battle);
 		resetOther();
-		
 	    }
 	    
 	}
 
-	
 	//Cruiser Placement
 	set = false;
 	while (set == false) {
+	    randomOrient = (int) (2 * Math.random());
+	    if (randomOrient == 0)
+		orient = "h";
+	    else if (randomOrient == 1)
+		orient = "v";
 
-	    randomOrientCPU = (int) (2 * Math.random());
-	    if (randomOrientCPU == 0)
-		orientCPU = "h";
-	    else
-		orientCPU = "v";
-
-	    if (orientCPU.equals("h")) {
-		letterCPU = letterifyNumber( (int) (10 * Math.random()) );
-		numCPU = (int) (7 * Math.random());
+	    if (orient.equals("h")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (8 * Math.random());
 	    }
-	    if (orientCPU.equals("v")) {
-		letterCPU = letterifyNumber( (int) (7 * Math.random()) );
-		numCPU = (int) (10 * Math.random());
+	    if (orient.equals("v")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(8*Math.random())) ) / 10 );
+		num = (int) (10 * Math.random());
 	    }
-    
-	    set = cruiser.setShip(orientCPU, letterCPU, numCPU);
+	    
+	    set = cruiser.setShipCPU(orient, letter, num);
 	    if (cruiser.isOccupied(aircraft) == false) {
 		set = false;
 		resetCoors(cruiser);
@@ -112,27 +102,25 @@ public class Computar extends Player {
 
 	}
 
-	
 	//Submarine Placement
 	set = false;
 	while (set == false) {
+	    randomOrient = (int) (2 * Math.random());
+	    if (randomOrient == 0)
+		orient = "h";
+	    else if (randomOrient == 1)
+		orient = "v";
 
-	    randomOrientCPU = (int) (2 * Math.random());
-	    if (randomOrientCPU == 0)
-		orientCPU = "h";
-	    else
-		orientCPU = "v";
+	    if (orient.equals("h")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (8 * Math.random());
+	    }
+	    if (orient.equals("v")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(8*Math.random())) ) / 10 );
+		num = (int) (10 * Math.random());
+	    }
 
-	    if (orientCPU.equals("h")) {
-		letterCPU = letterifyNumber( (int) (10 * Math.random()) );
-		numCPU = (int) (7 * Math.random());
-	    }
-	    if (orientCPU.equals("v")) {
-		letterCPU = letterifyNumber( (int) (7 * Math.random()) );
-		numCPU = (int) (10 * Math.random());
-	    }
-    
-	    set = submarine.setShip(orientCPU, letterCPU, numCPU);
+	    set = submarine.setShipCPU(orient, letter, num);
 	    if (submarine.isOccupied(aircraft) == false) {
 		set = false;
 		resetCoors(submarine);
@@ -151,27 +139,25 @@ public class Computar extends Player {
 
 	}
 
-	
 	//Destroyer Placement
 	set = false;
 	while (set == false) {
+	    randomOrient = (int) (2 * Math.random());
+	    if (randomOrient == 0)
+		orient = "h";
+	    else if (randomOrient == 1)
+		orient = "v";
 
-	    randomOrientCPU = (int) (2 * Math.random());
-	    if (randomOrientCPU == 1)
-		orientCPU = "h";
-	    else
-		orientCPU = "v";
+	    if (orient.equals("h")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (9 * Math.random());
+	    }
+	    if (orient.equals("v")) {
+		letter = letterifyNumber( ( 10 + (10 * (int)(9*Math.random())) ) / 10 );
+		num = (int) (10 * Math.random());
+	    }
 
-	    if (orientCPU.equals("h")) {
-		letterCPU = letterifyNumber( (int) (10 * Math.random()) );
-		numCPU = (int) (8 * Math.random());
-	    }
-	    if (orientCPU.equals("v")) {
-		letterCPU = letterifyNumber( (int) (8 * Math.random()) );
-		numCPU = (int) (10 * Math.random());
-	    }
-    
-	    set = destroyer.setShip(orientCPU, letterCPU, numCPU);
+	    set = destroyer.setShipCPU(orient, letter, num);
 	    if (destroyer.isOccupied(aircraft) == false) {
 		set = false;
 		resetCoors(destroyer);
@@ -192,10 +178,12 @@ public class Computar extends Player {
 		resetCoors(destroyer);
 		resetOther();
 	    }
-	    
+
 	}
 	gridifyCPU();
+
     }
+
 }
 
 
