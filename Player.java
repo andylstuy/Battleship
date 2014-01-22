@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class Player {
 
@@ -14,6 +15,55 @@ public class Player {
 	for (int i = 0; i < ship.getCoors().size(); i++)
 	    ship.getCoors().set(i, null);
     }
+
+    public static void shipifyGrid(String[][] a) {
+	for(int x = 0; x < aircraft.getCoors().size(); x++) {
+	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "a";
+	}
+	for(int x = 0; x < battle.getCoors().size(); x++) {
+	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "b";
+	}
+	for(int x = 0; x < cruiser.getCoors().size(); x++) {
+	    a[(cruiser.getCoors().get(x)/10)][(cruiser.getCoors().get(x)%10)+1] = "c";
+	}
+	for(int x = 0; x < submarine.getCoors().size(); x++) {
+	    a[(submarine.getCoors().get(x)/10)][(submarine.getCoors().get(x)%10)+1] = "s";
+	}
+	for(int x = 0; x < destroyer.getCoors().size(); x++) {
+	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "d";
+	}
+    }
+
+    public static void gridifyYou() {
+      
+        String[][] yourTargetGrid = new String[11][11];
+        grid(yourTargetGrid);
+        System.out.println("Player1 Target Grid:");
+        print(yourTargetGrid);
+
+        String[][] yourOceanGrid = new String[11][11];
+	grid(yourOceanGrid);
+	shipifyGrid(yourOceanGrid);
+        System.out.println("Player1 Ocean Grid:");
+        print(yourOceanGrid);
+
+    }
+
+    public static void gridifyCPU() {
+
+        String[][] computarTargetGrid = new String[11][11];
+        grid(computarTargetGrid);
+        System.out.println("Player2 Target Grid:");
+        print(computarTargetGrid);
+
+        String[][] computarOceanGrid = new String[11][11];
+        grid(computarOceanGrid);
+	shipifyGrid(computarOceanGrid);
+	System.out.println("Player2 Ocean Grid:");
+        print(computarOceanGrid);
+        
+    }
+
 
     public static void setup(){
 
@@ -71,53 +121,10 @@ public class Player {
         }
     }
 
-    public static void shipifyGrid(String[][] a) {
-	for(int x = 0; x < aircraft.getCoors().size(); x++) {
-	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "a";
-	}
-	for(int x = 0; x < battle.getCoors().size(); x++) {
-	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "b";
-	}
-	for(int x = 0; x < cruiser.getCoors().size(); x++) {
-	    a[(cruiser.getCoors().get(x)/10)][(cruiser.getCoors().get(x)%10)+1] = "c";
-	}
-	for(int x = 0; x < submarine.getCoors().size(); x++) {
-	    a[(submarine.getCoors().get(x)/10)][(submarine.getCoors().get(x)%10)+1] = "s";
-	}
-	for(int x = 0; x < destroyer.getCoors().size(); x++) {
-	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "d";
-	}
-    }
     
-    public static void gridifyYou() {
-      
-        String[][] yourTargetGrid = new String[11][11];
-        grid(yourTargetGrid);
-        System.out.println("Player1 Target Grid:");
-        print(yourTargetGrid);
+    
 
-        String[][] yourOceanGrid = new String[11][11];
-	grid(yourOceanGrid);
-	shipifyGrid(yourOceanGrid);
-        System.out.println("Player1 Ocean Grid:");
-        print(yourOceanGrid);
 
-    }
-
-    public static void gridifyCPU() {
-
-        String[][] computarTargetGrid = new String[11][11];
-        grid(computarTargetGrid);
-        System.out.println("Player2 Target Grid:");
-        print(computarTargetGrid);
-
-        String[][] computarOceanGrid = new String[11][11];
-        grid(computarOceanGrid);
-	shipifyGrid(computarOceanGrid);
-	System.out.println("Player2 Ocean Grid:");
-        print(computarOceanGrid);
-        
-    }
     //End - Things for gridification
     
   
