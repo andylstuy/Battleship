@@ -17,6 +17,9 @@ public class Player {
     static String[][] computarTargetGrid = new String[11][11];
     static String[][] computarOceanGrid = new String[11][11];
 
+    static String attackLetter;
+    static int attackNum;
+
     static int numPlayers = 0;
     
     public static Ship getAircraft(){
@@ -39,14 +42,7 @@ public class Player {
     	return destroyer;
     }
 
-    	/*if ( g[Ship.numifyLetter(s)+1][i+1].equals("a") ||
-	     g[Ship.numifyLetter(s)+1][i+1].equals("b") ||
-	     g[Ship.numifyLetter(s)+1][i+1].equals("c") ||
-	     g[Ship.numifyLetter(s)+1][i+1].equals("s") ||
-	     g[Ship.numifyLetter(s)+1][i+1].equals("d") )  
-	    g[Ship.numifyLetter(s)+1][i+1] = "X";
-	else
-	g[Ship.numifyLetter(s)+1][i+1] = "O";*/
+    	/**/
 
     public static ArrayList<Integer> storeCoors(Player p){
 	ArrayList<Integer> storage = new ArrayList<Integer>();
@@ -72,10 +68,21 @@ public class Player {
 	    }
 	    else {
 		g[(Ship.numifyLetter(s)+1)][i+1] = "O";
-		System.out.println("\nWow, that was a bad miss...");
+		//System.out.println("\nWow, that was a bad miss...");
 	    }
 	}
+	print(g);
+    }
 
+    public static void hitCPU(Player p, String[][] g, String s, int i) {
+	if ( g[Ship.numifyLetter(s)+1][i+1].equals("a") ||
+	     g[Ship.numifyLetter(s)+1][i+1].equals("b") ||
+	     g[Ship.numifyLetter(s)+1][i+1].equals("c") ||
+	     g[Ship.numifyLetter(s)+1][i+1].equals("s") ||
+	     g[Ship.numifyLetter(s)+1][i+1].equals("d") )  
+	    g[Ship.numifyLetter(s)+1][i+1] = "X";
+	else
+	    g[Ship.numifyLetter(s)+1][i+1] = "O";
 	print(g);
     }
 
@@ -84,7 +91,6 @@ public class Player {
 	for (int i = 0; i < ship.getCoors().size(); i++)
 	    ship.getCoors().set(i, null);
     }
-
 
 
     public static void shipifyGrid(String[][] a) {
@@ -107,7 +113,7 @@ public class Player {
 
     public static void shipifyGridCPU(String[][] a) {
 	for(int x = 0; x < aircraft.getCoors().size(); x++) {
-	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "a";
+	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "~";
 	}
 	for(int x = 0; x < battle.getCoors().size(); x++) {
 	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "~";
@@ -121,34 +127,34 @@ public class Player {
 	for(int x = 0; x < destroyer.getCoors().size(); x++) {
 	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "~";
 	}
-}
+    }
+
 
     public static void gridifyYou() {
-      
         
-        grid(yourTargetGrid);
-        System.out.println("Player1 Target Grid:");
-        print(yourTargetGrid);
+	/*       grid(yourTargetGrid);
+        System.out.println("Your Target Grid:");
+        print(yourTargetGrid);*/
 
         
 	grid(yourOceanGrid);
 	shipifyGrid(yourOceanGrid);
-        System.out.println("Player1 Ocean Grid:");
+        System.out.println("Your Ocean Grid:");
         print(yourOceanGrid);
 
     }
 
     public static void gridifyCPU() {
 
-        
+	/*        
         grid(computarTargetGrid);
         System.out.println("Player2 Target Grid:");
-        //print(computarTargetGrid);
+        print(computarTargetGrid);*/
 
         
         grid(computarOceanGrid);
 	shipifyGridCPU(computarOceanGrid);
-	System.out.println("Player2 Ocean Grid:");
+	System.out.println("Computar's Ocean Grid:");
         print(computarOceanGrid);
         
     }
@@ -197,8 +203,19 @@ public class Player {
 	    computar1 = new Computar();
 	    human1.setupForOneHuman();
 	    computar1.setupForCPU();
+	    while( (human1.getAircraft().getLives() > 0 ||
+		human1.getBattle().getLives() > 0 ||
+		human1.getCruiser().getLives() > 0 ||
+		human1.getSubmarine().getLives() > 0 ||
+		human1.getDestroyer().getLives() > 0) ||
+	       (computar1.getAircraft().getLives() > 0 ||
+		computar1.getBattle().getLives() > 0 ||
+		computar1.getCruiser().getLives() > 0 ||
+		computar1.getSubmarine().getLives() > 0 ||
+		computar1.getDestroyer().getLives() > 0)) {
 	    human1.play();
-	    //computar1.play();
+	    computar1.play();
+	    }
 	}
 	else if(numPlayers == 2) {
 	    human1 = new Human();
