@@ -242,7 +242,9 @@ public class Player {
 		    human2.getCruiser().getLives() > 0 ||
 		    human2.getSubmarine().getLives() > 0 ||
 		    human2.getDestroyer().getLives() > 0) ) {
+
 		System.out.println("We needa do this.");
+
 	    }
 	}
 	else {
