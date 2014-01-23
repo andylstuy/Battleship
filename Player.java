@@ -59,15 +59,12 @@ public class Player {
    
     public static void hit(Player p, String[][] g, String s, int i) {
 	ArrayList<Integer> already = new ArrayList<Integer>();
-	already.add(1);
+
 	for (int x = 0; x < storeCoors(p).size(); x++) {
-	    if ( already.get(x) != (10 * (Ship.numifyLetter(s)+1) + i) ) {
-		already.add(storeCoors(p).get(x));
-		System.out.println("You've already tried attacking this spot!");
-		break;
-	    }
-	    else {
+	    if (already.size() == 0 || 
+		!( already.get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) ) {
 		if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
+		    already.add(storeCoors(p).get(x));
 		    g[(Ship.numifyLetter(s)+1)][i+1] = "X";
 		    System.out.println("\nSuccessful hit!");
 		    break;
@@ -76,6 +73,12 @@ public class Player {
 		    g[(Ship.numifyLetter(s)+1)][i+1] = "O";
 		    //System.out.println("\nWow, that was a bad miss...");
 		}
+	    }
+
+	    else {
+		System.out.println("You've already tried attacking this spot!");
+		break;
+
 	    }
 	}
 	print(g);
@@ -227,8 +230,20 @@ public class Player {
 	else if(numPlayers == 2) {
 	    human1 = new Human();
 	    human2 = new Human();
-	    //human1.setup();
-	    //human2.setup();
+	    human1.setupForOneHuman();
+	    human2.setupForOneHuman();
+	    while( (human1.getAircraft().getLives() > 0 ||
+		    human1.getBattle().getLives() > 0 ||
+		    human1.getCruiser().getLives() > 0 ||
+		    human1.getSubmarine().getLives() > 0 ||
+		    human1.getDestroyer().getLives() > 0) ||
+		   (human2.getAircraft().getLives() > 0 ||
+		    human2.getBattle().getLives() > 0 ||
+		    human2.getCruiser().getLives() > 0 ||
+		    human2.getSubmarine().getLives() > 0 ||
+		    human2.getDestroyer().getLives() > 0) ) {
+		System.out.println("We needa do this.");
+	    }
 	}
 	else {
 	    System.out.println("You did not enter valid input.");
