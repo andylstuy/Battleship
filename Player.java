@@ -42,8 +42,6 @@ public class Player {
     	return destroyer;
     }
 
-    	/**/
-
     public static ArrayList<Integer> storeCoors(Player p){
 	ArrayList<Integer> storage = new ArrayList<Integer>();
 	for (int i = 0; i < p.getAircraft().getCoors().size(); i++)
@@ -60,15 +58,24 @@ public class Player {
     }
    
     public static void hit(Player p, String[][] g, String s, int i) {
+	ArrayList<Integer> already = new ArrayList<Integer>();
+	already.add(1);
 	for (int x = 0; x < storeCoors(p).size(); x++) {
-	    if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
-		g[(Ship.numifyLetter(s)+1)][i+1] = "X";
-		System.out.println("\nSuccessful hit!");
+	    if ( already.get(x) != (10 * (Ship.numifyLetter(s)+1) + i) ) {
+		already.add(storeCoors(p).get(x));
+		System.out.println("You've already tried attacking this spot!");
 		break;
 	    }
 	    else {
-		g[(Ship.numifyLetter(s)+1)][i+1] = "O";
-		//System.out.println("\nWow, that was a bad miss...");
+		if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "X";
+		    System.out.println("\nSuccessful hit!");
+		    break;
+		}
+		else {
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "O";
+		    //System.out.println("\nWow, that was a bad miss...");
+		}
 	    }
 	}
 	print(g);
