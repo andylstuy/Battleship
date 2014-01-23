@@ -10,7 +10,7 @@ public class Human extends Player {
     static int num;
 
     public static void setupForOneHuman(){
-	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
+	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space. \ni.e. h F 7");
 
 	
 	//Aircraft Placement
