@@ -145,16 +145,7 @@ public class Human extends Player {
     }
 
     public static void play() {
-	/*while( (human1.getAircraft().getLives() > 0 ||
-		    human1.getBattle().getLives() > 0 ||
-		    human1.getCruiser().getLives() > 0 ||
-		    human1.getSubmarine().getLives() > 0 ||
-		    human1.getDestroyer().getLives() > 0) ||
-		   (human2.getAircraft().getLives() > 0 ||
-		    human2.getBattle().getLives() > 0 ||
-		    human2.getCruiser().getLives() > 0 ||
-		    human2.getSubmarine().getLives() > 0 ||
-		    human2.getDestroyer().getLives() > 0) ) {
+	/* {
 	    ;
 	    }*/
 	
