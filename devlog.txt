@@ -17,3 +17,5 @@ MID-DEVELOPMENT DESIGN CHANGES
 
 LESSONS LEARNED
 
+
+-Add the thing for Computar accidentally guessing same coordinate
