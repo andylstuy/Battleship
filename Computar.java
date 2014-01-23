@@ -190,6 +190,14 @@ public class Computar extends Player {
 
     }
 
+    public static void play() {
+	System.out.println("Computar attacking...");
+	int random = 1 + (int) (10 * Math.random());
+	attackLetter = ETTERS.substring(random, random + 1);
+	attackNum = (int) (10 * Math.random());
+	hitCPU(human1, yourOceanGrid, attackLetter, attackNum);
+    }
+
 }
 
 
