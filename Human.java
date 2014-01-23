@@ -8,6 +8,8 @@ public class Human extends Player {
     static String orient;
     static String letter;
     static int num;
+    static String attackLetter;
+    static int attackNum;
 
     public static void setupForOneHuman(){
 	System.out.println("\nFor each ship select the orientation(h for horizontal, v for vertical) and the top left coordinate of the ship. \nThe coordinates range from A0 to J9.\nSelect the letter(it must be uppercase) and the number and separate all entries with a space.");
@@ -143,5 +145,43 @@ public class Human extends Player {
 	gridifyYou();
 
     }
+
+    public static void play() {
+	/*while( (human1.getAircraft().getLives() > 0 ||
+		    human1.getBattle().getLives() > 0 ||
+		    human1.getCruiser().getLives() > 0 ||
+		    human1.getSubmarine().getLives() > 0 ||
+		    human1.getDestroyer().getLives() > 0) ||
+		   (human2.getAircraft().getLives() > 0 ||
+		    human2.getBattle().getLives() > 0 ||
+		    human2.getCruiser().getLives() > 0 ||
+		    human2.getSubmarine().getLives() > 0 ||
+		    human2.getDestroyer().getLives() > 0) ) {
+	    ;
+	    }*/
+	while( (human1.getAircraft().getLives() > 0 ||
+		human1.getBattle().getLives() > 0 ||
+		human1.getCruiser().getLives() > 0 ||
+		human1.getSubmarine().getLives() > 0 ||
+		human1.getDestroyer().getLives() > 0) ||
+	       (computar1.getAircraft().getLives() > 0 ||
+		computar1.getBattle().getLives() > 0 ||
+		computar1.getCruiser().getLives() > 0 ||
+		computar1.getSubmarine().getLives() > 0 ||
+		computar1.getDestroyer().getLives() > 0)) {
+	    System.out.println("It's your turn, Player. Make your move... \nWhere would you like to attack?");
+	    attackLetter = in.next();
+	    attackNum = in.nextInt();
+	    hit(computar1, computarOceanGrid, attackLetter, attackNum);
+	    
+	}
+
+    }
+
+
+
+
+
+
 
 }
