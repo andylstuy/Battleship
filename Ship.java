@@ -8,6 +8,7 @@ public class Ship {
     private static String _name;
     private ArrayList<Integer> coors = new ArrayList<Integer>();
 
+
     public Ship(String name) {
         if(name.equals("aircraft carrier")) {
             _name = name;
@@ -34,6 +35,8 @@ public class Ship {
     public int getLives(){
     	return _lives;
     }
+
+
 
     public static int numifyLetter(String letter) {
         for(int x = 0; x < LETTERS.length(); x++)
