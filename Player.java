@@ -14,11 +14,18 @@ public class Player {
     static Human human2;
     static String[][] yourTargetGrid = new String[11][11];
     static String[][] yourOceanGrid = new String[11][11];
+    static String[][] otherTargetGrid = new String[11][11];
+    static String[][] otherOceanGrid = new String[11][11];
     static String[][] computarTargetGrid = new String[11][11];
     static String[][] computarOceanGrid = new String[11][11];
 
     static String attackLetter;
     static int attackNum;
+
+    private static int _totalLives = 17;
+    private static int _totalLivesPlayer1 = 17;
+    private static int _totalLivesPlayer2 = 17;
+    private static int _totalLivesCPU = 17;
 
     static int numPlayers = 0;
     
@@ -57,6 +64,10 @@ public class Player {
 	return storage;
     }
    
+
+
+
+
     public static void hit(Player p, String[][] g, String s, int i) {
 	ArrayList<Integer> already = new ArrayList<Integer>();
 
@@ -66,7 +77,64 @@ public class Player {
 		if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
 		    already.add(storeCoors(p).get(x));
 		    g[(Ship.numifyLetter(s)+1)][i+1] = "X";
-		    System.out.println("\nSuccessful hit!");
+		    _totalLivesCPU -= 1;
+		    System.out.println("\nSuccessful hit! \nComputar's Ocean Grid:");
+		    break;
+		}
+		else {
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "O";
+		    //System.out.println("\nWow, that was a bad miss...");
+		}
+	    }
+
+	    else {
+		System.out.println("You've already tried attacking this spot!");
+		break;
+
+	    }
+	}
+	print(g);
+    }
+
+    public static void hit1(Player p, String[][] g, String s, int i) {
+	ArrayList<Integer> already = new ArrayList<Integer>();
+
+	for (int x = 0; x < storeCoors(p).size(); x++) {
+	    if (already.size() == 0 || 
+		!( already.get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) ) {
+		if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
+		    already.add(storeCoors(p).get(x));
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "X";
+		    _totalLivesPlayer2 -= 1;
+		    System.out.println("\nSuccessful hit! \nPlayer 2's Ocean Grid:");
+		    break;
+		}
+		else {
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "O";
+		    //System.out.println("\nWow, that was a bad miss...");
+		}
+	    }
+
+	    else {
+		System.out.println("You've already tried attacking this spot!");
+		break;
+
+	    }
+	}
+	print(g);
+    }
+
+    public static void hit2(Player p, String[][] g, String s, int i) {
+	ArrayList<Integer> already = new ArrayList<Integer>();
+
+	for (int x = 0; x < storeCoors(p).size(); x++) {
+	    if (already.size() == 0 || 
+		!( already.get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) ) {
+		if ( storeCoors(p).get(x) == (10 * (Ship.numifyLetter(s)+1) + i) ) {
+		    already.add(storeCoors(p).get(x));
+		    g[(Ship.numifyLetter(s)+1)][i+1] = "X";
+		    _totalLivesPlayer1 -= 1;
+		    System.out.println("\nSuccessful hit! \nPlayer 1's Ocean Grid:");
 		    break;
 		}
 		else {
@@ -89,14 +157,21 @@ public class Player {
 	     g[Ship.numifyLetter(s)+1][i+1].equals("b") ||
 	     g[Ship.numifyLetter(s)+1][i+1].equals("c") ||
 	     g[Ship.numifyLetter(s)+1][i+1].equals("s") ||
-	     g[Ship.numifyLetter(s)+1][i+1].equals("d") )  
+	     g[Ship.numifyLetter(s)+1][i+1].equals("d") ) {
 	    g[Ship.numifyLetter(s)+1][i+1] = "X";
+	    _totalLives -= 1;
+	    System.out.println("\nComputar has struck you! \nYour Board:");
+	}
 	else
 	    g[Ship.numifyLetter(s)+1][i+1] = "O";
 	print(g);
     }
 
-    
+ 
+
+
+
+   
     public static void resetCoors(Ship ship){
 	for (int i = 0; i < ship.getCoors().size(); i++)
 	    ship.getCoors().set(i, null);
@@ -121,6 +196,24 @@ public class Player {
 	}
     }
 
+    public static void shipifyGridMe(String[][] a) {
+	for(int x = 0; x < aircraft.getCoors().size(); x++) {
+	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "~";
+	}
+	for(int x = 0; x < battle.getCoors().size(); x++) {
+	    a[(battle.getCoors().get(x)/10)][(battle.getCoors().get(x)%10)+1] = "~";
+	}
+	for(int x = 0; x < cruiser.getCoors().size(); x++) {
+	    a[(cruiser.getCoors().get(x)/10)][(cruiser.getCoors().get(x)%10)+1] = "~";
+	}
+	for(int x = 0; x < submarine.getCoors().size(); x++) {
+	    a[(submarine.getCoors().get(x)/10)][(submarine.getCoors().get(x)%10)+1] = "~";
+	}
+	for(int x = 0; x < destroyer.getCoors().size(); x++) {
+	    a[(destroyer.getCoors().get(x)/10)][(destroyer.getCoors().get(x)%10)+1] = "~";
+	}
+    }
+
     public static void shipifyGridCPU(String[][] a) {
 	for(int x = 0; x < aircraft.getCoors().size(); x++) {
 	    a[(aircraft.getCoors().get(x)/10)][(aircraft.getCoors().get(x)%10)+1] = "~";
@@ -142,11 +235,6 @@ public class Player {
 
     public static void gridifyYou() {
         
-	/*       grid(yourTargetGrid);
-        System.out.println("Your Target Grid:");
-        print(yourTargetGrid);*/
-
-        
 	grid(yourOceanGrid);
 	shipifyGrid(yourOceanGrid);
         System.out.println("Your Ocean Grid:");
@@ -154,14 +242,26 @@ public class Player {
 
     }
 
+    public static void gridifyMe() {
+        
+	grid(yourOceanGrid);
+	shipifyGridMe(yourOceanGrid);
+        System.out.println("Your Ocean Grid:");
+        print(yourOceanGrid);
+
+    }
+
+    public static void gridifyOther() {
+        
+	grid(otherOceanGrid);
+	shipifyGridCPU(otherOceanGrid);
+        System.out.println("Opponent's Ocean Grid:");
+        print(otherOceanGrid);
+
+    }
+
     public static void gridifyCPU() {
 
-	/*        
-        grid(computarTargetGrid);
-        System.out.println("Player2 Target Grid:");
-        print(computarTargetGrid);*/
-
-        
         grid(computarOceanGrid);
 	shipifyGridCPU(computarOceanGrid);
 	System.out.println("Computar's Ocean Grid:");
@@ -213,65 +313,48 @@ public class Player {
 	    computar1 = new Computar();
 	    human1.setupForOneHuman();
 	    computar1.setupForCPU();
-	    while( (human1.getAircraft().getLives() > 0 ||
-		human1.getBattle().getLives() > 0 ||
-		human1.getCruiser().getLives() > 0 ||
-		human1.getSubmarine().getLives() > 0 ||
-		human1.getDestroyer().getLives() > 0) ||
-	       (computar1.getAircraft().getLives() > 0 ||
-		computar1.getBattle().getLives() > 0 ||
-		computar1.getCruiser().getLives() > 0 ||
-		computar1.getSubmarine().getLives() > 0 ||
-		computar1.getDestroyer().getLives() > 0)) {
-	    human1.play();
-	    computar1.play();
+	    while( (_totalLives > 0) ||
+		   (_totalLivesCPU > 0) ) {
+		human1.play();
+		if (_totalLivesCPU < 1) {
+		    System.out.println("\nYOU WIN!!!!!");
+		    break;
+		}
+
+		computar1.play();
+		if (_totalLives < 1) {
+		    System.out.println("Awwwwww... you lost. ):");
+		    break;
+		}
 	    }
+
+	    
 	}
 	else if(numPlayers == 2) {
 	    human1 = new Human();
 	    human2 = new Human();
-	    human1.setupForOneHuman();
-	    human2.setupForOneHuman();
-	    while( (human1.getAircraft().getLives() > 0 ||
-		    human1.getBattle().getLives() > 0 ||
-		    human1.getCruiser().getLives() > 0 ||
-		    human1.getSubmarine().getLives() > 0 ||
-		    human1.getDestroyer().getLives() > 0) ||
-		   (human2.getAircraft().getLives() > 0 ||
-		    human2.getBattle().getLives() > 0 ||
-		    human2.getCruiser().getLives() > 0 ||
-		    human2.getSubmarine().getLives() > 0 ||
-		    human2.getDestroyer().getLives() > 0) ) {
 
-		human1.play();
-		human2.play();
+	    human1.setupForFirstHuman();
+	    human2.setupForSecondHuman();
+	    while( (_totalLivesPlayer1 > 0) &&
+		   (_totalLivesPlayer2 > 0) ) {
+		human1.play1();
+		if (_totalLivesPlayer2 < 1) {
+		    System.out.println("\nPLAYER 1 WINS!!!!!");
+		    break;
+		}
+	
+		human2.play2();	
+		if (_totalLivesPlayer1 < 1) {
+		    System.out.println("\nPLAYER 2 WINS!!!!!");	
+		    break;
+		}
 
 	    }
+
 	}
-	else {
-	    System.out.println("You did not enter valid input.");
-	    System.out.println("Please try again.");
-	}
+	
     }
-
-
-
-    /*    public static void play() {
-	setup();
-	if (numPlayers == 2){
-	    
-		human1.play();
-		human2.play();
-	    
-	}
-	else{
-	    	
-		human1.play();
-		computar1.play();
-	}
-	}*/
-
-
 
 
 }
