@@ -5,14 +5,59 @@ JOURNAL
 01-09-14
 Battleship begins!
 
+01-13-14 & 01-14-14
+Actual coding begins. All classes of the game are created(Andy) and basic coding in the Ships.java (now
+the Ship.java) class begins(Anya). On the 14th code to create and print out player grids is published
+(Andy).
+
+01-15-14
+The setup method in Player.java is started(Anya). The computar class is created(Andy). The code to create
+and print a player's grid is moved from Battleship.java to Player.java(Andy). Old Ships.java code is 
+deleted and replaced with newer better code including the constructor and a setShip() method to be used
+during setup(Anya). Grid code is changed and additions are made(Andy).
+
+01-16-14
+Sample Scanner code is posted for reference(Andy). Instance vars are added to Player.java and used in the
+constructor and a helper function for the setup method is made(Anya).
+
+01-17-14
+The setupHuman method is started(Anya). Human.java and Player.java are briefly worked on(Andy).
+
+01-19-14
+Battleship.class, Player.java~ and Human.java~ are removed(Andy).
+
+01-20-14
+Ship objects are removed from Human.java and Computar.java and relocated to Player.java(Anya). Human,
+Computar and Player setup methods are altered(Anya). The method shipifyGrid() is created to alter the
+player's grid in order to reflect their ship placements(Anya). Gridify method is split up into gridifyYou()
+and gridifyCPU() and further work is done on these methods(Andy). Significant work is accomplished in 
+Human.java to make sure that overlapping ships are not allowed in setup as well as helper methods(Andy).
+
+01-21-14
+Method names changed and random choosing for the computer player is worked on(Andy). Uneccessary code is
+removed(Anya). Computar grid printing is fixed(Andy).
+
+01-22-14
+Helper methods and while loop for the play method are created(Anya). Work is done on the play method to 
+facilitate attacking and to check where you attacked(ship, ocean, previously hit spot, etc.)(Andy).
+
+01-23-14
+Play method is worked on(Andy). Attempt to fix checking issues and playing issues(Andy).
+
+Game is completed and Shipped!
+
 
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Eveything. Issues constantly came up that we fixed one way or another. Specific issues however
+were storing coordinates guessed and making sure a player would be notified if they happened to
+choose a coordinate that they had already guessed.
 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If the coordinate is not put in 
+If the coordinate is not put in with a space in between the letter and the number (i.e. if the 
+directions are not followed) it will not work.
 
 
 COOL STUFF LEARNED
@@ -31,7 +76,3 @@ LESSONS LEARNED
 Commenting code is very useful.
 Think thrugh concepts before starting a project.
 Don't code when you're really tired. You have no idea what you're doing.
-
-
-
--Add the thing for Computar accidentally guessing same coordinate
