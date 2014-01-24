@@ -2,6 +2,8 @@ Development Log
 
 JOURNAL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+01-09-14
+Battleship begins!
 
 
 OBSTACLES OVERCOME
