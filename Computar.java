@@ -181,12 +181,7 @@ public class Computar extends Player {
 
 	}
 	gridifyCPU();
-	System.out.println("\nComputar has set its ships...");
-	System.out.println(aircraft.getCoors()); 
-	System.out.println(battle.getCoors());
-	System.out.println(cruiser.getCoors());
-	System.out.println(submarine.getCoors());
-	System.out.println(destroyer.getCoors());
+	System.out.println("\nComputar has set its ships...\n");
 
     }
 
