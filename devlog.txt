@@ -51,7 +51,9 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Eveything. Issues constantly came up that we fixed one way or another. Specific issues, however,
 were storing coordinates guessed and making sure a player would be notified if he or she
-happened to choose a coordinate that had already been guessed.
+happened to choose a coordinate that had already been guessed. We overcame our obstacles by just
+sticking with it and constantly reworking the code. The scrap paper was especially useful in
+helping us complete our version of Battleship.
 
 
 UNRESOLVED ISSUES
