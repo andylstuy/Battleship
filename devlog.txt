@@ -72,7 +72,8 @@ We learned how to use Scanner, which is vital to our project.
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We did not have time to implement a GUI.
-We could not make a "smart" AI. It guesses randomly rather than the way a human would play.
+We also did not have time to make a "smart" AI. It guesses randomly rather than the way a human
+would play.
 
 
 LESSONS LEARNED
