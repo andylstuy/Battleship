@@ -57,7 +57,8 @@ choose a coordinate that they had already guessed.
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If the coordinate is not put in with a space in between the letter and the number (i.e. if the 
-directions are not followed) it will not work.
+directions are not followed) it will not work. Also, if a player chooses to attack a spot that
+they have already attacked it will not notify them.
 
 
 COOL STUFF LEARNED
