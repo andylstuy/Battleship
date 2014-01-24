@@ -44,26 +44,27 @@ facilitate attacking and to check where you attacked(ship, ocean, previously hit
 01-23-14
 Play method is worked on(Andy). Attempt to fix checking issues and playing issues(Andy).
 
-Game is completed and Shipped!
+Game is completed and shipped!
 
 
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Eveything. Issues constantly came up that we fixed one way or another. Specific issues however
-were storing coordinates guessed and making sure a player would be notified if they happened to
-choose a coordinate that they had already guessed.
+Eveything. Issues constantly came up that we fixed one way or another. Specific issues, however,
+were storing coordinates guessed and making sure a player would be notified if he or she
+happened to choose a coordinate that had already been guessed.
 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If the coordinate is not put in with a space in between the letter and the number (i.e. if the 
-directions are not followed) it will not work. Also, if a player chooses to attack a spot that
-they have already attacked it will not notify them.
+If your input when prompted does not have a space in between the letter and the number (in other
+words, if the directions are not strictly followed) the game will not work. Also, if a player
+chooses to attack a spot that he or she has already attacked, the game will not provide any
+notification and the player's integrity may be compromised.
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We learned how to use Scanner.
+We learned how to use Scanner, which is vital to our project.
 
 
 MID-DEVELOPMENT DESIGN CHANGES
@@ -74,6 +75,7 @@ We could not make a "smart" AI. It guesses randomly rather than the way a human 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Commenting code is very useful.
-Think thrugh concepts before starting a project.
-Don't code when you're really tired. You have no idea what you're doing.
+Commenting code can be very useful.
+Think through concepts and have a set, concrete plan before starting a project.
+Don't code when you're really tired - you have no idea what you're doing, which becomes
+especially apparent if you try explaining your code the next day.
